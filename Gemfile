@@ -4,10 +4,16 @@ git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
   "https://github.com/#{repo_name}.git"
 end
-
-
 gem 'rails', '~> 5.1.3'
-gem 'pg'
+
+group :production do
+  gem 'pg'
+end
+
+group :development, :test do
+  gem 'sqlite3'
+end
+
 gem 'puma', '~> 3.7'
 gem 'bcrypt', '~> 3.1.7'
 
