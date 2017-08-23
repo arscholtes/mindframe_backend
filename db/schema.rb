@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20170821222310) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "entries", force: :cascade do |t|
     t.string "title"
     t.text "body"
@@ -20,7 +23,7 @@ ActiveRecord::Schema.define(version: 20170821222310) do
     t.integer "good_day"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_entries_on_user_id"
   end
 
@@ -33,4 +36,5 @@ ActiveRecord::Schema.define(version: 20170821222310) do
     t.string "phone"
   end
 
+  add_foreign_key "entries", "users"
 end
