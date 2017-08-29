@@ -10,7 +10,8 @@ gem 'pg'
 
 gem 'puma', '~> 3.7'
 gem 'bcrypt', '~> 3.1.7'
-
+gem 'rack-cors'
+ 
 gem 'webpacker', '~> 2.0'
 gem 'wicked', '~> 1.3', '>= 1.3.2'
 gem 'annotate'
